@@ -1,0 +1,171 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #0f0f0f;
+  color: #e5e5e5;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+}
+
+.card {
+  background: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 16px;
+  padding: 40px 36px;
+  width: 100%;
+  max-width: 480px;
+}
+
+h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  margin-top: 6px;
+  font-size: 0.9rem;
+  color: #777;
+}
+
+#calc-form {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+input[type="number"] {
+  width: 100%;
+  background: #111;
+  border: 1px solid #2e2e2e;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1rem;
+  padding: 12px 14px;
+  outline: none;
+  transition: border-color 0.15s;
+  -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type="number"]:focus {
+  border-color: #f59e0b;
+}
+
+.input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-wrap input {
+  padding-right: 36px;
+}
+
+.input-wrap .unit {
+  position: absolute;
+  right: 14px;
+  color: #555;
+  font-size: 0.95rem;
+  pointer-events: none;
+}
+
+.input-wrap .unit.prefix {
+  left: 14px;
+  right: auto;
+}
+
+.input-wrap input.prefix-input {
+  padding-left: 28px;
+  padding-right: 14px;
+}
+
+button[type="submit"] {
+  margin-top: 8px;
+  width: 100%;
+  background: #f59e0b;
+  color: #0f0f0f;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  padding: 14px;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+}
+
+button[type="submit"]:hover {
+  background: #fbbf24;
+}
+
+button[type="submit"]:active {
+  transform: scale(0.98);
+}
+
+.result {
+  margin-top: 36px;
+  padding-top: 32px;
+  border-top: 1px solid #2a2a2a;
+  text-align: center;
+}
+
+.result-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #666;
+}
+
+.result-monthly {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #f59e0b;
+  letter-spacing: -0.03em;
+  margin-top: 8px;
+  line-height: 1;
+}
+
+.result-yearly {
+  font-size: 1.1rem;
+  color: #777;
+  margin-top: 10px;
+}
+
+.error {
+  margin-top: 16px;
+  font-size: 0.85rem;
+  color: #ef4444;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lead Leak Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="card">
+    <h1>Lead Leak Calculator</h1>
+    <p class="subtitle">Find out how much revenue is slipping through the cracks.</p>
+
+    <form id="calc-form" novalidate>
+      <div class="field">
+        <label for="enquiries">Enquiries per week</label>
+        <input type="number" id="enquiries" placeholder="e.g. 20" min="0" step="1" required />
+      </div>
+
+      <div class="field">
+        <label for="missed">% of enquiries missed</label>
+        <div class="input-wrap">
+          <input type="number" id="missed" placeholder="e.g. 30" min="0" max="100" step="1" required />
+          <span class="unit">%</span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="job-value">Average job value</label>
+        <div class="input-wrap">
+          <span class="unit prefix">£</span>
+          <input type="number" id="job-value" placeholder="e.g. 500" min="0" step="1" required style="padding-left:28px;" />
+        </div>
+      </div>
+
+      <button type="submit">Calculate</button>
+    </form>
+
+    <div id="result" class="result hidden" aria-live="polite">
+      <p class="result-label">Estimated revenue lost per month</p>
+      <p id="monthly" class="result-monthly"></p>
+      <p id="yearly" class="result-yearly"></p>
+    </div>
+
+    <p id="error" class="error hidden">Please fill in all three fields with valid numbers.</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
