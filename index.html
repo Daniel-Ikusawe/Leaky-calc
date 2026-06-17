@@ -7,42 +7,129 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="card">
-    <h1>Lead Leak Calculator</h1>
-    <p class="subtitle">Find out how much revenue is slipping through the cracks.</p>
 
-    <form id="calc-form" novalidate>
-      <div class="field">
-        <label for="enquiries">Enquiries per week</label>
-        <input type="number" id="enquiries" placeholder="e.g. 20" min="0" step="1" required />
-      </div>
+  <div class="page">
 
-      <div class="field">
-        <label for="missed">% of enquiries missed</label>
-        <div class="input-wrap">
-          <input type="number" id="missed" placeholder="e.g. 30" min="0" max="100" step="1" required />
-          <span class="unit">%</span>
+    <div class="card">
+      <h1>Lead Leak Calculator</h1>
+      <p class="subtitle">See exactly how much revenue is slipping away — and what you get back.</p>
+
+      <div class="inputs">
+
+        <div class="field">
+          <label for="enquiries">Enquiries per week</label>
+          <input type="number" id="enquiries" placeholder="e.g. 20" min="0" step="1" />
         </div>
-      </div>
 
-      <div class="field">
-        <label for="job-value">Average job value</label>
-        <div class="input-wrap">
-          <span class="unit prefix">£</span>
-          <input type="number" id="job-value" placeholder="e.g. 500" min="0" step="1" required style="padding-left:28px;" />
+        <div class="field">
+          <label for="job-value">Average job value</label>
+          <div class="input-wrap">
+            <span class="unit prefix">£</span>
+            <input type="number" id="job-value" placeholder="e.g. 500" min="0" step="1" style="padding-left:28px;" />
+          </div>
         </div>
+
+        <div class="field">
+          <div class="slider-header">
+            <label for="missed">Leads missed per week</label>
+            <span class="slider-value" id="missed-display">30%</span>
+          </div>
+          <input type="range" id="missed" min="0" max="100" step="1" value="30" />
+        </div>
+
       </div>
-
-      <button type="submit">Calculate</button>
-    </form>
-
-    <div id="result" class="result hidden" aria-live="polite">
-      <p class="result-label">Estimated revenue lost per month</p>
-      <p id="monthly" class="result-monthly"></p>
-      <p id="yearly" class="result-yearly"></p>
     </div>
 
-    <p id="error" class="error hidden">Please fill in all three fields with valid numbers.</p>
+    <div class="card">
+      <h2 class="section-title">Services</h2>
+
+      <div class="service-list">
+
+        <label class="service-item locked">
+          <input type="checkbox" checked disabled />
+          <div class="service-info">
+            <span class="service-name">AI Lead-Response System</span>
+            <span class="service-price">£1,200 setup &middot; £750/mo</span>
+          </div>
+          <span class="service-badge">Included</span>
+        </label>
+
+        <label class="service-item" id="label-website">
+          <input type="checkbox" id="addon-website" data-setup="500" data-monthly="0" />
+          <div class="service-info">
+            <span class="service-name">Website</span>
+            <span class="service-price">£500 setup</span>
+          </div>
+        </label>
+
+        <label class="service-item" id="label-gbp">
+          <input type="checkbox" id="addon-gbp" data-setup="200" data-monthly="0" />
+          <div class="service-info">
+            <span class="service-name">Google Business Profile Optimisation</span>
+            <span class="service-price">£200 setup</span>
+          </div>
+        </label>
+
+        <label class="service-item" id="label-booking">
+          <input type="checkbox" id="addon-booking" data-setup="500" data-monthly="100" />
+          <div class="service-info">
+            <span class="service-name">Booking System</span>
+            <span class="service-price">£500 setup &middot; £100/mo</span>
+          </div>
+        </label>
+
+      </div>
+
+      <div class="cost-summary">
+        <div class="cost-row">
+          <span>Total setup cost</span>
+          <span id="total-setup">£1,200</span>
+        </div>
+        <div class="cost-row">
+          <span>Total monthly cost</span>
+          <span id="total-monthly">£750/mo</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card results-card" id="results">
+      <h2 class="section-title">Your ROI</h2>
+
+      <div class="result-group">
+        <p class="result-label">Revenue lost per month</p>
+        <p class="result-hero" id="lost-monthly">—</p>
+        <p class="result-sub" id="lost-yearly">— per year</p>
+      </div>
+
+      <div class="result-divider"></div>
+
+      <div class="result-grid">
+        <div class="result-item">
+          <p class="result-label">Recovered revenue/month</p>
+          <p class="result-value green" id="recovered-monthly">—</p>
+        </div>
+        <div class="result-item">
+          <p class="result-label">Monthly service cost</p>
+          <p class="result-value neutral" id="service-monthly">—</p>
+        </div>
+        <div class="result-item">
+          <p class="result-label">Net monthly gain</p>
+          <p class="result-value" id="net-monthly">—</p>
+        </div>
+        <div class="result-item">
+          <p class="result-label">Ongoing ROI</p>
+          <p class="result-value" id="roi-ongoing">—</p>
+        </div>
+      </div>
+
+      <div class="result-divider"></div>
+
+      <div class="result-total">
+        <p class="result-label">Total ROI <span class="label-note">(first 3 months, incl. setup)</span></p>
+        <p class="result-hero accent" id="roi-total">—</p>
+      </div>
+    </div>
+
   </div>
 
   <script src="script.js"></script>
